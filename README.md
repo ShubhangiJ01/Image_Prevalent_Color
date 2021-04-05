@@ -8,6 +8,7 @@
 - [Files](#files)
 - [Validation](#validation)
 - [Approach](#approach)
+- [Result](#result)
 
 ## Objective
 
@@ -19,13 +20,12 @@ Focus is on speed and resources. The solution should be able to handle input fil
 1. Install the required packages mentioned in requirement.txt
 
 ## Files
-- main.py : Starting point, containing implementation of multiprocessing pool as well
-- DataLoader.py : Loading the URLs from the input file passed through command line argument
-- SamplePreprocessing.py : Preprocessing the image
-- clustering.py : KMeans++ implementation
-- DominantColor.py: Counting the pixels associated with each cluster centroid
-- output.py: Using queue, writing in the output file passed through command line argument
- 
+- **main.py** : Starting point, containing implementation of multiprocessing pool as well
+- **DataLoader.py** : Loading the URLs from the input file passed through command line argument
+- **SamplePreprocessing.py** : Preprocessing the image
+- **clustering.py** : KMeans++ implementation
+- **DominantColor.py**: Counting the pixels associated with each cluster centroid
+- **output.py**: Using queue, writing in the output file passed through command line argument 
 
 ## Validation
 
@@ -54,3 +54,15 @@ outputcsv = file storing 3 most prevalent color along with corresponging image u
 - All the images are reduced to a fixed size (150,150) to reduce the time.
 - Once the images are loaded, multiprocessing is used to preprocess, cluster and count pixels associated with centroid. This helped in processing multiple images at the same time based on the number of cores avaiable in the CPU. To implement this python library `multiprocessing.pool` is used which maps the input to the different processors and collects the output from all the processors.
 - Queue manager is used to send the writing tasks to a dedicated process that has sole write access to the output file. All the other workers have read only access. This will eliminate collisions.
+
+## Result
+
+Please find output.csv storing 3 most prevalent colors for each corresponding image url passed in input.txt.
+
+
+**_NOTE:_**
+
+Some of the URLs in input.txt gave **"image not found error"**. No entry for those URLs is created in output.csv
+
+
+
