@@ -43,16 +43,15 @@ outputcsv = file storing 3 most prevalent color along with corresponging image u
 
 #### Algorithm
 
-- To identify the most prevalent color, clustering alogrithm **KMeans++** is applied on each image. 
-    - Clustering alogrithm would segment the image in different cluster using color as one of the feature.After observing results on some of the data, common cluster number 10 is selected. 
-    - To get better result, DBSCAN clustering alogothrim could have been used in place of KMeans++ as it would have removed the dependency on number numbers. But as our focus is not speed and resources, considering DBSCAN took a lot of time, I have used KMeans++ for my final results.
-
-- Once the image is segmented into different cluster, based on the count of pixels associated with every centroid, centroid with 3 large pixels points count represented 3 most prevalent color in image. 
+- To identify the most prevalent color, clustering algorithm **KMeans++** is applied on each image. 
+- Clustering alogrithm would segment the image in different clusters using color as one of the features. After observing results on some of the data, I decided to use 10 clusters for my algorithm.
+- To get better results, DBSCAN clustering algorithm could have been used in place of KMeans++ as it would have removed the dependency on selecting the number of clusters. But as our focus is on speed and resources, considering DBSCAN took a lot of time, I have used KMeans++ for my final results.
+ - Once the image pixels are clustered, I selected the top 3 clusters that contain the most number of pixels. The centroids of these 3 clusters represent the 3 most prevalent colors in the image.
 
 #### Resources Utilization
 
 - All the images are reduced to a fixed size (150,150) to reduce the time.
-- Once the images are loaded, multiprocessing is used to preprocess, cluster and count pixels associated with centroid. This helped in processing multiple images at the same time based on the number of cores avaiable in the CPU. To implement this python library `multiprocessing.pool` is used which maps the input to the different processors and collects the output from all the processors.
+- Once the images are loaded, multiprocessing is used to preprocess, cluster and count pixels associated with centroid. This helped in processing multiple images at the same time based on the number of cores avaiable in the CPU. To implement this Python library `multiprocessing.pool` is used which maps the input to the different processors and collects the output from all the processors.
 - Queue manager is used to send the writing tasks to a dedicated process that has sole write access to the output file. All the other workers have read only access. This will eliminate collisions.
 
 ## Result
