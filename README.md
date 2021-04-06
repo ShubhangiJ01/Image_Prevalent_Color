@@ -56,7 +56,7 @@ outputcsv = file storing 3 most prevalent color along with corresponging image u
 
 ##### Testing
 
-- In the code, several validations are introduced to check valid output for each function. Error are written in `error.log` file. Due to random centroid selection of KMeans++ I could not test code using pytest library. 
+- In the code, several validations are introduced to check valid output for each function. Error are written in `error.log` file. Due to random selection of centroid in KMeans++ I could not test code using pytest library. 
 
 ## Result
 
