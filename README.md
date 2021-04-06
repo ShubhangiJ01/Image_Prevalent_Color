@@ -17,7 +17,8 @@ Given a list of links leading to an image, read this list of images and find 3 m
 Focus is on speed and resources. The solution should be able to handle input files with more than a billion URLs, using limited resources (e.g. 1 CPU, 512MB RAM). Keep in mind that there is no limit on the execution time, but make sure you are utilizing the provided resources as much as possible at any time during the program execution.
 
 ## Installation
-1. Install the required packages mentioned in requirement.txt
+1. Clone the repository
+2. Install the required packages mentioned in requirement.txt
 
 ## Files
 - **main.py** : Starting point, contain implementation of multiprocessing pool as well
