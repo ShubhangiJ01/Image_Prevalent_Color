@@ -1,4 +1,4 @@
-# Image_Prevalent_Color
+# three_prevalent_color
 ![](https://img.shields.io/badge/python-3.5-green.svg?style=flat)
 
 ## Table of Contents
@@ -20,12 +20,12 @@ Focus is on speed and resources. The solution should be able to handle input fil
 1. Install the required packages mentioned in requirement.txt
 
 ## Files
-- **main.py** : Starting point, containing implementation of multiprocessing pool as well
+- **main.py** : Starting point, contain implementation of multiprocessing pool as well
 - **DataLoader.py** : Loading the URLs from the input file passed through command line argument
 - **SamplePreprocessing.py** : Preprocessing the image
 - **clustering.py** : KMeans++ implementation
 - **DominantColor.py**: Counting the pixels associated with each cluster centroid
-- **output.py**: Using queue, writing in the output file passed through command line argument 
+- **output.py**: Using single queue, writing in the output file passed through command line argument 
 
 ## Validation
 
@@ -54,6 +54,10 @@ outputcsv = file storing 3 most prevalent color along with corresponging image u
 - Once the images are loaded, multiprocessing is used to preprocess, cluster and count pixels associated with centroid. This helped in processing multiple images at the same time based on the number of cores avaiable in the CPU. To implement this Python library `multiprocessing.pool` is used which maps the input to the different processors and collects the output from all the processors.
 - Queue manager is used to send the writing tasks to a dedicated process that has sole write access to the output file. All the other workers have read only access. This will eliminate collisions.
 
+##### Testing
+
+- In the code, several validations are introduced to check valid output for each function. Error are written in `error.log` file. Due to random centroid selection of KMeans++ I could not test code using pytest library. 
+
 ## Result
 
 Please find `output.csv` storing 3 most prevalent colors for each corresponding image url passed in `input.txt`.
@@ -61,7 +65,7 @@ Please find `output.csv` storing 3 most prevalent colors for each corresponding 
 
 **_NOTE:_**
 
-Some of the URLs in input.txt gave **"image not found error"**. No entry for those URLs is created in output file.
+Some of the URLs in input.txt gave **"image not found error"**. No entry for those URLs is created in output file. 
 
 
 
