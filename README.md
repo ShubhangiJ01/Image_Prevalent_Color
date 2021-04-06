@@ -56,12 +56,12 @@ outputcsv = file storing 3 most prevalent color along with corresponging image u
 
 ## Result
 
-Please find `output.csv` storing 3 most prevalent colors for each corresponding image url passed in input.txt.
+Please find `output.csv` storing 3 most prevalent colors for each corresponding image url passed in `input.txt`.
 
 
 **_NOTE:_**
 
-Some of the URLs in input.txt gave **"image not found error"**. No entry for those URLs is created in output.csv
+Some of the URLs in input.txt gave **"image not found error"**. No entry for those URLs is created in output file.
 
 
 
